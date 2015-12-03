@@ -1,0 +1,48 @@
+#footer {
+	background-color: #273032;
+	margin-top: 50px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#footer span {
+	color: #EEEEEE;
+	font-style: italic;
+}
+
+.space-between-field {
+	margin-top : 3px;
+	margin-bottom: 3px;
+}
+
+.space-button {
+	margin-top : 25px;
+}
+
+.space-button-edit {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#formPanelGrid td {
+	padding: 3px !important;
+}
+
+body {
+	background-color: #eee;
+	padding-top: 70px;
+}
+
+.back-menu {
+	z-index: 1 !important;
+}
+
+.ui-menubar,.ui-menu-child,.ui-menu {
+    background: #a38ad0!important;
+}
+
+.ui-menuitem-text{
+	color: white;
+}

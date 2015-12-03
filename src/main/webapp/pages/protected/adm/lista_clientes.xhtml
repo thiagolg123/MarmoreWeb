@@ -1,0 +1,67 @@
+<ui:composition template="/WEB-INF/template/template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+		<div class="container">
+			<h2>Lista de Clientes</h2>
+			<h:form id="formListaClientes">
+				<p:dataTable id="tableClientes" var="cliente"
+					emptyMessage="Nenhum cliente encontrado" 
+					value="#{listaCliBean.listaClientes}" 
+					widgetVar="tableCliWid"
+					paginator="true" rows="5">
+					
+					<f:facet name="header">
+					<p:growl id="editSucess" autoUpdate="true" life="4000"/>
+						<p:outputPanel>
+							<h:outputText value="Clientes" />
+						</p:outputPanel>
+					</f:facet>
+					<p:column headerText="Nome" filterBy="#{cliente.nome}" filterMatchMode="contains">
+						<h:outputText value="#{cliente.nome}"/>
+					</p:column>
+					<p:column headerText="CPF">
+						<h:outputText value="#{cliente.cpf}" />
+					</p:column>
+					<p:column headerText="Endereço">
+						<h:outputText value="#{cliente.endereco}" />
+					</p:column>
+					<p:column headerText="Telefone">
+						<h:outputText value="#{cliente.telefone}" />
+					</p:column>
+					<p:column id="btnActions">
+						<p:commandButton title="Apagar Cliente" 
+							icon="ui-icon-trash"
+							action="#{listaCliBean.apagaCliente(cliente.id)}">
+							<p:confirm header="Confirmação" message="Tem certeza disso?" icon="ui-icon-alert" />
+						</p:commandButton>
+						<p:commandButton value="Editar" icon="ui-icon-pencil" 
+							styleClass="space-button-edit" 
+							actionListener="#{listaCliBean.openModalEditCliente()}">
+							<f:param name="clienteId" value="#{cliente.id}"/>
+							<p:ajax event="dialogReturn" 
+								listener="#{listaCliBean.onEditSucess}"
+								onsuccess="PF('tableCliWid').filter()"
+								update="editSucess"/>
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+				
+				<p:confirmDialog global="true" showEffect="fade">
+					<p:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check">
+						<p:ajax process="@all" 
+							update=":formListaClientes:tableClientes" 
+							onsuccess="PF('tableCliWid').filter()"/>
+					</p:commandButton>
+					<p:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+			</h:form>
+		</div>
+    </ui:define>
+</ui:composition>

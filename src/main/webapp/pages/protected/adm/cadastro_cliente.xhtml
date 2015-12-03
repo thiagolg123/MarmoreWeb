@@ -1,0 +1,44 @@
+<ui:composition template="/WEB-INF/template/template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+		<div class="container">
+			<div class="jumbotron">
+				<p>Cadastro de Clientes</p>
+				<h:form id="formCadastroCliente">
+					<p:growl id="msgCli" class="msgCli" life="4000"/>
+					<h:panelGrid id="pgCadCli" columns="2">
+						<h:outputText value="Nome:" />
+						<p:inputText label="Nome" required="true" 
+							styleClass="space-between-field" 
+							value="#{cadastroCliente.cliente.nome}"/>
+						
+						<h:outputText value="CPF:" />
+						<p:inputText label="CPF" required="true" 
+							styleClass="space-between-field" 
+							value="#{cadastroCliente.cliente.cpf}"/>
+						
+						<h:outputText value="Endereço:" />
+						<p:inputText label="Endereço" 
+							styleClass="space-between-field" 
+							value="#{cadastroCliente.cliente.endereco}"/>
+						
+						<h:outputText value="Telefone:" />
+						<p:inputText label="Telefone" 
+							styleClass="space-between-field" 
+							value="#{cadastroCliente.cliente.telefone}"/>
+						
+						<p:commandButton id="cadButton" styleClass="space-button" 
+							value="Salvar"
+							action="#{cadastroCliente.salvaCliente}" resetValues="true" 
+							update="msgCli, pgCadCli"/> 
+					</h:panelGrid>
+				</h:form>
+			</div>
+		</div>
+    </ui:define>
+</ui:composition>

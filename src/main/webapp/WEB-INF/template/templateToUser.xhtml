@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>MarmoreWeb</title>
+	<link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/css/bootstrap.min.css" />
+	<link href="${facesContext.externalContext.requestContextPath}/css/main.css" rel="stylesheet"/>
+	<link rel="icon" href="${facesContext.externalContext.requestContextPath}/icon/favicon.ico" type="image/x-icon"/>
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+</h:head>
+<h:body>
+<!-- Header -->
+<div id="header">
+  <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top back-menu" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+				<span class="sr-only">Toggle navigation</span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span>
+			</button>
+			<a href="welcomeUser.jsf"><img alt="MarmoreWeb" src="${facesContext.externalContext.requestContextPath}/img/logo_top_menu.png"/></a>
+		</div>
+		
+		<!-- Links do menu -->
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="nav navbar-nav">
+				<li><a href="lista_clientes.jsf?faces-redirect=true">Lista de Clientes</a></li>
+				<li><h:form><h:commandLink value="Sair" action="#{loginBean.exitLogin}" /></h:form></li>
+			</ul>
+		</div>
+	</div>
+  </nav>
+</div>
+<!-- Fim Header -->
+
+<!-- Miolo a ser inserido -->
+<div id="content">
+	<ui:insert name="content"></ui:insert>
+</div>
+<!-- Fim Miolo -->
+	
+<!-- Footer -->
+<div id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<img alt="" src="${facesContext.externalContext.requestContextPath}/img/logo_getLoad.png" />
+				<p>Copyright 2015</p>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="${facesContext.externalContext.requestContextPath}/js/bootstrap.min.js"></script>
+</h:body>
+</html>

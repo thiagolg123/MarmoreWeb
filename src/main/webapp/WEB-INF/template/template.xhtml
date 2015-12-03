@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>MarmoreWeb</title>
+	<link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/css/bootstrap.min.css" />
+	<link href="${facesContext.externalContext.requestContextPath}/css/main.css" rel="stylesheet"/>
+	<link rel="icon" href="${facesContext.externalContext.requestContextPath}/icon/favicon.ico" type="image/x-icon"/>	
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+</h:head>
+<h:body>
+<!-- Menu -->
+<div id="menu">
+  <nav id="myNavbar" class="navbar navbar-fixed-top back-menu" role="navigation">
+	<h:form>  
+	    <p:menubar>
+	    	<p:menuitem>
+				<h:link outcome="welcomeAdm">
+			        <h:graphicImage url="/img/logos/logo_top_menu.png" height="40" width="200"/>
+			    </h:link>
+		   	</p:menuitem> 
+	        <p:submenu label="Clientes" icon="ui-icon-document">
+	            <p:menuitem value="Cadastro" outcome="cadastro_cliente" icon="ui-icon-circle-plus"/>
+	            <p:menuitem value="Lista" outcome="lista_clientes" icon="ui-icon-clipboard"/>
+	        </p:submenu>
+	        <p:submenu label="Edit" icon="ui-icon-pencil">
+	            <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+	            <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+	        </p:submenu>
+	        <f:facet name="options">
+	            <p:commandButton action="#{loginBean.exitLogin()}" value="Sair" icon="ui-icon-extlink" />
+	        </f:facet>
+	    </p:menubar>
+	</h:form>
+  </nav>
+</div>
+<!-- Fim Menu -->
+
+<!-- Miolo a ser inserido -->
+<div id="content">
+	<ui:insert name="content"></ui:insert>
+</div>
+<!-- Fim Miolo -->
+	
+<!-- Footer -->
+<div id="footer">
+	<div class="container">
+	 <div class="row">
+		<div class="col-lg-4">
+			<img alt="" src="${facesContext.externalContext.requestContextPath}/img/logos/logoTgSyS.png" />
+			<span>Copyright 2015</span>
+		</div>
+	 </div>
+	</div>
+</div>
+<script src="${facesContext.externalContext.requestContextPath}/js/bootstrap.min.js"></script>
+</h:body>
+</html>

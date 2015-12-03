@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Bem Vindo</title>
+	<link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/css/bootstrap.min.css"/>
+	<link href="${facesContext.externalContext.requestContextPath}/css/main.css" rel="stylesheet"/>
+	<link rel="icon" href="${facesContext.externalContext.requestContextPath}/icon/favicon.ico" type="image/x-icon"/>
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<style type="text/css">
+		body {
+			padding-top: 70px;
+		}
+	</style>
+</h:head>
+<h:body>
+	<nav id="myNavbar" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation"> 
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"	data-target="#navbarCollapse">
+				<span class="sr-only">Toggle navigation</span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a href="index.jsf"><img alt="MarmoreWeb" src="${facesContext.externalContext.requestContextPath}/img/logos/logo_top_menu.png"/></a>
+		</div>
+		<!-- Links do menu -->
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="index.jsf">Home</a></li>
+				<li><a href="contato.jsf">Contato</a></li>
+			</ul>
+		</div>
+	</div>
+	</nav>
+	<!-- Principal -->
+	<div class="container">
+		<div class="jumbotron" align="center">
+			<img alt="MarmoreWeb" src="${facesContext.externalContext.requestContextPath}/img/logos/marmore_web_logo.png"/>
+			<p>Escolha o perfil de acesso:</p>
+			<p>
+				<h:form>
+					<p:commandButton value="Área de Adm"
+						action="#{homeBean.redirectToADM}" />
+					<p:commandButton value="Área de Usuário"
+						action="#{homeBean.redirectToUser}" />
+				</h:form>
+			</p>
+		</div>
+	</div>
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<img alt="" src="${facesContext.externalContext.requestContextPath}/img/logos/logoTgSyS.png" />
+					<span>Copyright 2015</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="${facesContext.externalContext.requestContextPath}/js/bootstrap.min.js"></script>
+</h:body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Editar Cliente</title>
+	<style type="text/css">
+		.ui-widget {
+			font-size: 90%;
+		}
+	</style>
+</h:head>
+<h:body>
+	<h:form>
+	 	<p:messages id="messages" autoUpdate="true" closable="true" />
+		<h:panelGrid id="editCli" columns="2">
+			<h:outputText value="Nome:" />
+			<p:inputText label="Nome" required="true" 
+				styleClass="space-between-field"
+				value="#{editCli.clienteToEdit.nome}" />
+			<h:outputText value="CPF:" />
+			<p:inputText label="CPF" required="true" 
+				styleClass="space-between-field"
+				value="#{editCli.clienteToEdit.cpf}" />
+			<h:outputText value="Endereço:" />
+			<p:inputText label="Endereço" styleClass="space-between-field"
+				value="#{editCli.clienteToEdit.endereco}" />
+			<h:outputText value="Telefone:" />
+			<p:inputText label="Telefone" styleClass="space-between-field"
+				value="#{editCli.clienteToEdit.telefone}" />
+			
+			<p:commandButton icon="ui-icon-pencil" 
+				value="Salvar"
+				actionListener="#{editCli.saveEditClient(editCli.clienteToEdit)}" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
